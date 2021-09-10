@@ -12,10 +12,10 @@ public class CalculadoraDesconto {
 	public BigDecimal calcular(Orcamento orcamento) {
 		
 		//deixar o maior desconto primeiro
-		Desconto desconto = new DezPorCento(
+		Desconto cadeiaDesconto = new DezPorCento(
 				new CincoPorCento(
 						new SemDesconto()));
 		
-		return desconto.calcular(orcamento);
+		return cadeiaDesconto.calcular(orcamento);
 	}
 }

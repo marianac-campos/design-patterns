@@ -11,11 +11,12 @@ public class DezPorCento extends Desconto {
 		super(proximo);
 	}
 	
-	public BigDecimal calcular(Orcamento orcamento) {
-		if (orcamento.getValor().compareTo(new BigDecimal("1000"))> 0) {
-			return orcamento.getValor().multiply(new BigDecimal("0.1"));
-		}
-		
-		return proximo.calcular(orcamento);
+	public boolean deveAplicar(Orcamento orcamento) {
+		return orcamento.getValor().compareTo(new BigDecimal("1000")) > 0;
 	}
+	
+	public BigDecimal efetuarCalculo(Orcamento orcamento) {
+		return orcamento.getValor().multiply(new BigDecimal("0.1"));
+	}
+	
 }
